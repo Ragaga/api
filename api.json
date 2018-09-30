@@ -1,0 +1,107 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "S3 TEST API",
+        "version": "0.01"
+    },
+    "paths": {
+        "/api/{bucket_name}/object/list/{path}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "bucket_name",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "path",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "default": "/"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List of storage objects in bucket folder"
+                    }
+                }
+            }
+        },
+        "/api/{bucket_name}/object/get/{path}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "bucket_name",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "path",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return storage object by path"
+                    }
+                }
+            }
+        },
+        "/api/{bucket_name}/object/delete/{path}": {
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "bucket_name",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "path",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete object in bucket by path"
+                    }
+                }
+            }
+        },
+        "/api/{bucket_name}/object/create": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data",
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "bucket_name",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "file",
+                        "in": "formData",
+                        "required": true,
+                        "type": "file"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Create object "
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
