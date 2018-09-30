@@ -6,5 +6,5 @@ namespace App\Repositories;
 
 interface BucketRepositoryInterface
 {
-    public function getByName();
+    public function getByName(string $name);
 }

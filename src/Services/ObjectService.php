@@ -39,7 +39,8 @@ class ObjectService
 
     public function deleteObject(Bucket $bucket, string $path)
     {
-        return $this->objectRepository->delete($bucket, $path);
+        $object = $this->objectRepository->getObject($bucket, $path);
+        return $this->objectRepository->delete($bucket, $object);
     }
 
     private function guardUniqueName(Bucket $bucket, string $path)
